@@ -1,0 +1,33 @@
+<%- include('partials/header'); -%>
+
+<h1>Results page</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Country</th>
+            <th scope="col">Total Cases</th>
+            <th scope="col">Recoveries</th>
+            <th scope="col">Deaths</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><h3>Global</h3></td>
+            <td><h4>+<%= data["Global"]["NewConfirmed"] %></h4><h3><%= data["Global"]["TotalConfirmed"] %></h3></td>
+            <td><h4>+<%= data["Global"]["NewDeaths"] %></h4><h3><%= data["Global"]["TotalDeaths"] %></h3></td>
+            <td><h4>+<%= data["Global"]["NewRecovered"] %></h4><h3><%= data["Global"]["TotalRecovered"] %></h3></td>
+        </tr>
+        <% for( let i = 0; i < data["Countries"].length; i++ ) { %>
+            <% if (data["Countries"][i]["Country"] === "India") { %>
+                <tr>
+                    <td><h3><a href="/indiaStats"><%= data["Countries"][i]["Country"] %></a></h3></td>
+                    <td><h4>+<%= data["Countries"][i]["NewConfirmed"] %></h4><h3><%= data["Countries"][i]["TotalConfirmed"] %></h3></td>
+                    <td><h4>+<%= data["Countries"][i]["NewDeaths"] %></h4><h3><%= data["Countries"][i]["TotalDeaths"] %></h3></td>
+                    <td><h4>+<%= data["Countries"][i]["NewRecovered"] %></h4><h3><%= data["Countries"][i]["TotalRecovered"] %></h3></td>
+                </tr>
+                <% break %>  
+            <% } %>
+        <% } %>
+    </tbody>
+</table>
+<%- include('partials/footer'); -%>
