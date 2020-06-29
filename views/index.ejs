@@ -18,14 +18,15 @@
             <td><h4>+<%= data["Global"]["NewRecovered"] %></h4><h3><%= data["Global"]["TotalRecovered"] %></h3></td>
         </tr>
         <% for( let i = 0; i < data["Countries"].length; i++ ) { %>
-            <% if (data["Countries"][i]["Country"] === "India") { %>
+            <% if (data["Countries"][i]["CountryCode"] === "IN" || data["Countries"][i]["CountryCode"] === "US" || data["Countries"][i]["CountryCode"] === "BR" || data["Countries"][i]["Country"] === "UK" || data["Countries"][i]["Country"] === "RU") { %>
                 <tr>
-                    <td><h3><a href="/indiaStats"><%= data["Countries"][i]["Country"] %></a></h3></td>
+                    <% if (data["Countries"][i]["CountryCode"]==="IN") { %>
+                        <td><h3><a href="/indiaStats"><%= data["Countries"][i]["Country"] %></a></h3></td>
+                    <% } %>
                     <td><h4>+<%= data["Countries"][i]["NewConfirmed"] %></h4><h3><%= data["Countries"][i]["TotalConfirmed"] %></h3></td>
                     <td><h4>+<%= data["Countries"][i]["NewDeaths"] %></h4><h3><%= data["Countries"][i]["TotalDeaths"] %></h3></td>
                     <td><h4>+<%= data["Countries"][i]["NewRecovered"] %></h4><h3><%= data["Countries"][i]["TotalRecovered"] %></h3></td>
-                </tr>
-                <% break %>  
+                </tr> 
             <% } %>
         <% } %>
     </tbody>

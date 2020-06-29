@@ -10,7 +10,7 @@ app.get("/results", function(req, res){
     request("https://api.covid19api.com/summary", function(error, data){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(data["body"]);
-            res.render("results", {data: data});
+            res.render("index", {data: data});
         }
     });
 });
