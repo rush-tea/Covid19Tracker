@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-class TotalConfirmed extends Component {
+class Totalrecovered extends Component {
     state = {
         totalStat: {
             labels: [],
@@ -17,21 +17,21 @@ class TotalConfirmed extends Component {
     componentDidMount() {
         axios.get("https://api.covid19india.org/data.json")
             .then(res => {
-                var totalConfirmed = [];
+                var totalrecovered = [];
                 var date = [];
                 res.data.cases_time_series.forEach(total => {
-                    const totalC = totalConfirmed.push(total.totalconfirmed);
+                    const totalC = totalrecovered.push(total.totalrecovered);
                     const totaldate = date.push(total.date);
                 });
-                totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 31, totalConfirmed.length);
+                totalrecovered = totalrecovered.slice(totalrecovered.length - 31, totalrecovered.length);
                 date = date.slice(date.length - 31, date.length);
                 this.setState({
                     totalStat: {
                         labels: date,
                         datasets: [
                             {
-                                label: "Total Confirmed Cases",
-                                data: totalConfirmed
+                                label: "Total recovered Cases",
+                                data: totalrecovered
                             }
                         ]
                     }
@@ -69,4 +69,4 @@ class TotalConfirmed extends Component {
     }
 }
 
-export default TotalConfirmed
+export default Totalrecovered

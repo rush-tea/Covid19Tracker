@@ -30,7 +30,7 @@ class DailyConfirmed extends Component {
                         labels: date,
                         datasets: [
                             {
-                                label: "Confirmed Cases",
+                                label: "Daily Confirmed Cases",
                                 data: dailyConfirmed
                             }
                         ]
@@ -44,10 +44,10 @@ class DailyConfirmed extends Component {
         const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(235, 54, 54,0.4)";
+                set.backgroundColor = "rgba(252, 88, 116,0.4)";
                 set.pointBackgroundColor = "red";
                 set.pointBorderColor = "red";
-                set.borderColor = "rgba(235, 54, 54,0.4)";
+                set.borderColor = "rgba(252, 88, 116,0.4)";
                 set.borderWidth = 2;
                 set.pointBorderWidth = 1
             });

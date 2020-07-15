@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-class TotalConfirmed extends Component {
+class Dailyrecovered extends Component {
     state = {
-        totalStat: {
+        dailyStat: {
             labels: [],
             datasets: [
                 {
@@ -17,21 +17,21 @@ class TotalConfirmed extends Component {
     componentDidMount() {
         axios.get("https://api.covid19india.org/data.json")
             .then(res => {
-                var totalConfirmed = [];
+                var dailyrecovered = [];
                 var date = [];
-                res.data.cases_time_series.forEach(total => {
-                    const totalC = totalConfirmed.push(total.totalconfirmed);
-                    const totaldate = date.push(total.date);
+                res.data.cases_time_series.forEach(daily => {
+                    const dailyC = dailyrecovered.push(daily.dailyrecovered);
+                    const dailydate = date.push(daily.date);
                 });
-                totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 31, totalConfirmed.length);
+                dailyrecovered = dailyrecovered.slice(dailyrecovered.length - 31, dailyrecovered.length);
                 date = date.slice(date.length - 31, date.length);
                 this.setState({
-                    totalStat: {
+                    dailyStat: {
                         labels: date,
                         datasets: [
                             {
-                                label: "Total Confirmed Cases",
-                                data: totalConfirmed
+                                label: "Daily recovered Cases",
+                                data: dailyrecovered
                             }
                         ]
                     }
@@ -41,13 +41,13 @@ class TotalConfirmed extends Component {
     }
 
     getChartData = canvas => {
-        const data = this.state.totalStat;
+        const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgb(54, 235, 60)";
-                set.pointBackgroundColor = "green";
-                set.pointBorderColor = "green";
-                set.borderColor = "rgb(54, 235, 60)";
+                set.backgroundColor = "rgba(252, 88, 116,0.4)";
+                set.pointBackgroundColor = "red";
+                set.pointBorderColor = "red";
+                set.borderColor = "rgba(252, 88, 116,0.4)";
                 set.borderWidth = 2;
                 set.pointBorderWidth = 1
             });
@@ -69,4 +69,4 @@ class TotalConfirmed extends Component {
     }
 }
 
-export default TotalConfirmed
+export default Dailyrecovered
