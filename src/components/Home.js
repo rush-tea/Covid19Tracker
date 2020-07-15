@@ -18,10 +18,24 @@ class Home extends Component {
         const { posts } = this.state;
         const postList = posts.length ? (
           posts.map((post) => {
-            return(
-                <div key={post.statecode}>{post.state}
-                {post.active}</div>
-            ) 
+            return (
+              <div>
+                <tr>
+                  <th>State</th>
+                  <th>Confirmed</th>
+                  <th>Active</th>
+                  <th>Recoveries</th>
+                  <th>Deaths</th>
+                </tr>
+                <tr>
+                  <td>{post.state}</td>
+                  <td>{post.confirmed}</td>
+                  <td>{post.active}</td>
+                  <td>{post.recovered}</td>
+                  <td>{post.deaths}</td>
+                </tr>
+              </div>
+            ); 
           })
         ) : (
           <div>No data found</div>
