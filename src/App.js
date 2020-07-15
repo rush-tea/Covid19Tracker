@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Home from './components/Home'
+import Charts from './components/Charts'
 
 class App extends Component {
     render(){
         return(
-            <Home />
+            <div>
+                <Home />
+                <Charts />
+            </div>
         )
     }
 }

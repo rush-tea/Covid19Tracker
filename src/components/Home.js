@@ -8,7 +8,7 @@ class Home extends Component {
     componentDidMount(){
         axios.get("https://api.covid19india.org/data.json")
         .then(res => {
-            console.log(res);
+            //console.log(res);
             this.setState({
                 posts: res.data.statewise
             })
@@ -19,21 +19,27 @@ class Home extends Component {
         const postList = posts.length ? (
           posts.map((post) => {
             return (
-              <div>
-                <tr>
-                  <th>State</th>
-                  <th>Confirmed</th>
-                  <th>Active</th>
-                  <th>Recoveries</th>
-                  <th>Deaths</th>
-                </tr>
-                <tr>
-                  <td>{post.state}</td>
-                  <td>{post.confirmed}</td>
-                  <td>{post.active}</td>
-                  <td>{post.recovered}</td>
-                  <td>{post.deaths}</td>
-                </tr>
+              <div key={post.statecode}>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>State</th>
+                      <th>Confirmed</th>
+                      <th>Active</th>
+                      <th>Recoveries</th>
+                      <th>Deaths</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{post.state}</td>
+                      <td>{post.confirmed}</td>
+                      <td>{post.active}</td>
+                      <td>{post.recovered}</td>
+                      <td>{post.deaths}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             ); 
           })
