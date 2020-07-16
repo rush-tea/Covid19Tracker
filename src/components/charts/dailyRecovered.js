@@ -20,8 +20,8 @@ class Dailyrecovered extends Component {
                 var dailyrecovered = [];
                 var date = [];
                 res.data.cases_time_series.forEach(daily => {
-                    const dailyC = dailyrecovered.push(daily.dailyrecovered);
-                    const dailydate = date.push(daily.date);
+                    dailyrecovered.push(daily.dailyrecovered);
+                    date.push(daily.date);
                 });
                 dailyrecovered = dailyrecovered.slice(dailyrecovered.length - 31, dailyrecovered.length);
                 date = date.slice(date.length - 31, date.length);
@@ -35,9 +35,8 @@ class Dailyrecovered extends Component {
                             }
                         ]
                     }
-                })
-                console.log(this.state);
-            })
+                });
+            });
     }
 
     getChartData = canvas => {

@@ -20,8 +20,8 @@ class Dailydeceased extends Component {
                 var dailydeceased = [];
                 var date = [];
                 res.data.cases_time_series.forEach(daily => {
-                    const dailyC = dailydeceased.push(daily.dailydeceased);
-                    const dailydate = date.push(daily.date);
+                    dailydeceased.push(daily.dailydeceased);
+                    date.push(daily.date);
                 });
                 dailydeceased = dailydeceased.slice(dailydeceased.length - 31, dailydeceased.length);
                 date = date.slice(date.length - 31, date.length);
@@ -35,9 +35,8 @@ class Dailydeceased extends Component {
                             }
                         ]
                     }
-                })
-                console.log(this.state);
-            })
+                });
+            });
     }
 
     getChartData = canvas => {

@@ -20,8 +20,8 @@ class Totaldeceased extends Component {
                 var totaldeceased = [];
                 var date = [];
                 res.data.cases_time_series.forEach(total => {
-                    const totalC = totaldeceased.push(total.totaldeceased);
-                    const totaldate = date.push(total.date);
+                    totaldeceased.push(total.totaldeceased);
+                    date.push(total.date);
                 });
                 totaldeceased = totaldeceased.slice(totaldeceased.length - 31, totaldeceased.length);
                 date = date.slice(date.length - 31, date.length);
@@ -35,9 +35,8 @@ class Totaldeceased extends Component {
                             }
                         ]
                     }
-                })
-                console.log(this.state);
-            })
+                });
+            });
     }
 
     getChartData = canvas => {

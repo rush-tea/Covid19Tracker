@@ -20,8 +20,8 @@ class DailyConfirmed extends Component {
                 var dailyConfirmed = [];
                 var date = [];
                 res.data.cases_time_series.forEach(daily => {
-                    const dailyC = dailyConfirmed.push(daily.dailyconfirmed);
-                    const dailydate = date.push(daily.date);
+                    dailyConfirmed.push(daily.dailyconfirmed);
+                    date.push(daily.date);
                 });
                 dailyConfirmed = dailyConfirmed.slice(dailyConfirmed.length - 31, dailyConfirmed.length);
                 date = date.slice(date.length - 31, date.length);
@@ -35,9 +35,8 @@ class DailyConfirmed extends Component {
                             }
                         ]
                     }
-                })
-                console.log(this.state);
-            })
+                });
+            });
     }
 
     getChartData = canvas => {
@@ -57,7 +56,7 @@ class DailyConfirmed extends Component {
 
     render() {
         return (
-            <div style={{ position: "relative", width: 500, height: 400 }}>
+            <div style={{ position: "relative", width: 500, height: 0 }}>
                 <Line
                     options={{
                         responsive: true

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Raleway&family=Red+Rose&display=swap');
+body{
+    font-family: 'Red Rose', cursive;
+}
 *{
     margin: 0;
     padding: 0;
@@ -7,15 +11,107 @@ canvas {
     width: 420px !important;
     height: 210px !important;
 }
-.charts div {
-    flex: none !important;
-    margin: 0px !important;
-    height: fit-content !important;
+@media(max-width: 900px){
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media(min-width: 900px){
     section{
         display: flex;
         text-align: center;
+        justify-content: space-around;
+        flex-direction: row;
     }
+    section div {
+        flex-basis: 40%;
+    }
+}
+
+/* top table */
+#top-content{
+    display: flex;
+    justify-content: space-around;
+}
+#top-table{
+    background-color: #f5f4f4;
+    flex-basis: 70%;
+}
+#top-table td{
+    padding: 25px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    background-color: #f5f4f4;
+}
+#top-table th{
+    padding: 13px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    background-color: #f5f4f4;
+}
+#c{
+    color: green;
+}
+#c:hover{
+    background-color: rgb(4, 222, 146,0.1);
+}
+#a{
+    color: rgb(36, 37, 128);
+
+}
+#r{
+    color: rgb(66, 135, 245);
+}
+#d{
+    color: red;
+}
+/*middle-content*/
+#middle-table{
+    margin-left: 20px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+td:hover{
+    background-color: rgb(186, 184, 184);
+    text-align: center;
+    color: #413f3f;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+td{
+    text-align: center;
+    color: #616161;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+tr:nth-of-type(even){
+    background-color: #f3f2f2;
+}
+tr:nth-of-type(odd){
+    background-color: rgb(232, 232, 232);
+
+}
+
+/*charts*/
+.charts{
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.charts div{
+    width: 420px !important;
+    margin: 0px !important;
+    height: fit-content !important;
 }

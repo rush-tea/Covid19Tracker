@@ -23,39 +23,66 @@ class Home extends Component {
     render(){
         const { posts } = this.state;
         return(
-            <section>
-              <table>
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th>Confirmed</th>
-                  <th>Active</th>
-                  <th>Recoveries</th>
-                  <th>Deaths</th>
-                </tr>
-              </thead>
-              <tbody>
-                {posts.map(post => (
-                  <tr key={post.statecode}>
-                    <td>{post.state}</td>
-                    <td>{post.confirmed}</td>
-                    <td>{post.active}</td>
-                    <td>{post.recovered}</td>
-                    <td>{post.deaths}</td>
+          <div>
+            <div id="top-content">
+              <table id="top-table">
+                <thead>
+                  <tr>
+                    <th id="c">Confirmed</th>
+                    <th id="a">Active</th>
+                    <th id="r">Recoveries</th>
+                    <th id="d">Deaths</th>
                   </tr>
-                ))}
-              </tbody>
-                  
-              </table>    
-            <div id="graphs" className="charts">
-              <DailyConfirmed />
-              <TotalConfirmed />
-              <Dailyrecovered />
-              <Totalrecovered />
-              <Dailydeceased />
-              <Totaldeceased />
+                </thead>
+                {posts.map(post => {
+                  if (post.statecode === "TT")
+                    return (
+                      <tbody key={post.statecode}>
+                        <tr>
+                          <td id="c">{post.confirmed}</td>
+                          <td id="a">{post.active}</td>
+                          <td id="r">{post.recovered}</td>
+                          <td id="d">{post.deaths}</td>
+                        </tr>
+                      </tbody>
+                    )
+                })}
+              </table>
+            </div>
+            
+            <section>
+              <div>
+                <table id="middle-table">
+                  <tbody>
+                    {posts.map(post => {
+                      if (post.statecode !== "TT")
+                        return (
+                          <tr key={post.statecode}>
+                            <td id="statedata">{post.state}</td>
+                            <td id="confirmed">{post.confirmed}</td>
+                            <td id="active">{post.active}</td>
+                            <td id="recovered">{post.recovered}</td>
+                            <td id="deaths">{post.deaths}</td>
+                          </tr>
+                        )
+                    }
+                    )}
+                  </tbody>
+                </table>
+              </div>
+              <div id="graphs" className="charts">
+                <DailyConfirmed />
+                <TotalConfirmed />
+                <Dailyrecovered />
+                <Totalrecovered />
+                <Dailydeceased />
+                <Totaldeceased />
               </div>
             </section>
+          </div>
+            
+              
+            
         )
     }
 }

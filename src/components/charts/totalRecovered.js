@@ -20,8 +20,8 @@ class Totalrecovered extends Component {
                 var totalrecovered = [];
                 var date = [];
                 res.data.cases_time_series.forEach(total => {
-                    const totalC = totalrecovered.push(total.totalrecovered);
-                    const totaldate = date.push(total.date);
+                    totalrecovered.push(total.totalrecovered);
+                    date.push(total.date);
                 });
                 totalrecovered = totalrecovered.slice(totalrecovered.length - 31, totalrecovered.length);
                 date = date.slice(date.length - 31, date.length);
@@ -35,9 +35,8 @@ class Totalrecovered extends Component {
                             }
                         ]
                     }
-                })
-                console.log(this.state);
-            })
+                });
+            });
     }
 
     getChartData = canvas => {

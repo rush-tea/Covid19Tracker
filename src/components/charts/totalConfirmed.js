@@ -20,8 +20,8 @@ class TotalConfirmed extends Component {
                 var totalConfirmed = [];
                 var date = [];
                 res.data.cases_time_series.forEach(total => {
-                    const totalC = totalConfirmed.push(total.totalconfirmed);
-                    const totaldate = date.push(total.date);
+                    totalConfirmed.push(total.totalconfirmed);
+                    date.push(total.date);
                 });
                 totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 31, totalConfirmed.length);
                 date = date.slice(date.length - 31, date.length);
@@ -35,9 +35,8 @@ class TotalConfirmed extends Component {
                             }
                         ]
                     }
-                })
-                console.log(this.state);
-            })
+                });
+            });
     }
 
     getChartData = canvas => {
