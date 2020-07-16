@@ -38,7 +38,6 @@ canvas {
     justify-content: space-around;
 }
 #top-table{
-    background-color: #f5f4f4;
     flex-basis: 70%;
 }
 #top-table td{
@@ -46,20 +45,15 @@ canvas {
     text-align: center;
     border-radius: 5px;
     border: none;
-    background-color: #f5f4f4;
 }
 #top-table th{
     padding: 13px;
     text-align: center;
     border-radius: 5px;
     border: none;
-    background-color: #f5f4f4;
 }
 #c{
     color: green;
-}
-#c:hover{
-    background-color: rgb(4, 222, 146,0.1);
 }
 #a{
     color: rgb(36, 37, 128);
@@ -72,12 +66,8 @@ canvas {
     color: red;
 }
 /*middle-content*/
-#middle-table{
-    margin-left: 20px;
-    padding-top: 50px;
-    padding-left: 50px;
-}
-td:hover{
+
+#middle-table td:hover{
     background-color: rgb(186, 184, 184);
     text-align: center;
     color: #413f3f;
@@ -85,17 +75,17 @@ td:hover{
     border-radius: 5px;
     border: 1px solid white;
 }
-td{
+#middle-table td{
     text-align: center;
     color: #616161;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid white;
 }
-tr:nth-of-type(even){
+#middle-table tr:nth-of-type(even){
     background-color: #f3f2f2;
 }
-tr:nth-of-type(odd){
+#middle-table tr:nth-of-type(odd){
     background-color: rgb(232, 232, 232);
 
 }
