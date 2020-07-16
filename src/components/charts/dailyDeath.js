@@ -44,10 +44,10 @@ class Dailydeceased extends Component {
         const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(252, 88, 116,0.4)";
+                set.backgroundColor = "rgba(252, 88, 116,0.7)";
                 set.pointBackgroundColor = "red";
                 set.pointBorderColor = "red";
-                set.borderColor = "rgba(252, 88, 116,0.4)";
+                set.borderColor = "rgba(252, 88, 116,0.7)";
                 set.borderWidth = 2;
                 set.pointBorderWidth = 1
             });
@@ -57,7 +57,7 @@ class Dailydeceased extends Component {
 
     render() {
         return (
-            <div style={{ position: "relative", width: 700, height: 550 }}>
+            <div style={{ position: "relative", width: 500, height: 400 }}>
                 <Line
                     options={{
                         responsive: true

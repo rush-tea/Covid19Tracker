@@ -44,10 +44,10 @@ class TotalConfirmed extends Component {
         const data = this.state.totalStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgb(54, 235, 60)";
+                set.backgroundColor = "rgba(4, 222, 146,0.7)";
                 set.pointBackgroundColor = "green";
                 set.pointBorderColor = "green";
-                set.borderColor = "rgb(54, 235, 60)";
+                set.borderColor = "rgba(4, 222, 146,0.7)";
                 set.borderWidth = 2;
                 set.pointBorderWidth = 1
             });
@@ -57,7 +57,7 @@ class TotalConfirmed extends Component {
 
     render() {
         return (
-            <div style={{ position: "relative", width: 700, height: 550 }}>
+            <div style={{ position: "relative", width: 500, height: 400 }}>
                 <Line
                     options={{
                         responsive: true

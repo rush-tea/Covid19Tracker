@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+canvas {
+    width: 420px !important;
+    height: 210px !important;
+}
+.charts div {
+    flex: none !important;
+    margin: 0px !important;
+    height: fit-content !important;
+}
+
+@media(min-width: 900px){
+    section{
+        display: flex;
+        text-align: center;
+    }
+}
