@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 
 class PieTotal extends Component {
@@ -23,14 +23,26 @@ class PieTotal extends Component {
                 console.log(dataSet);
                 this.setState({
                     data: {
-                        labels: [],
+                        labels: ["Active", "Recovered","Deaths"],
                         datasets: [
                             {
-                                label: "Points",
-                                backgroundColor: ['rgb(25, 250, 29)', 'rgb(36, 37, 128)','rgb(66, 135, 245)','red'],
-                                data: [parseInt(dataSet.confirmed),parseInt(dataSet.active), parseInt(dataSet.recovered), parseInt(dataSet.deaths) ] 
+                                label: [],
+                                backgroundColor: ['rgb(36, 37, 128)','rgb(66, 135, 245)','red'],
+                                data: [parseInt(dataSet.active), parseInt(dataSet.recovered), parseInt(dataSet.deaths) ] 
                             }
                         ]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            display: false,
+                            label: {
+                                fontSize: 0
+                            }
+                        },
+                        title: {
+                            display: false
+                        }
                     }
                 });
             });
@@ -38,10 +50,8 @@ class PieTotal extends Component {
     render() {
         return (
             <div style={{ position: "relative"}}>
-                <Pie
-                    options={{
-                        responsive: true
-                    }}
+                <Doughnut
+                    options={this.state.options}
                     data={this.state.data}
                 />
             </div>

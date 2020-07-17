@@ -11,17 +11,31 @@ canvas {
     width: 420px !important;
     height: 210px !important;
 }
-@media(max-width: 900px){
+@media(max-width: 1000px){
     section{
+        padding-top: 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+    #top-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #top-table{
+        flex-basis: 30%;
+    }
+    #pieChart{
+        flex-basis: 30% !important;
+    }
 }
 
-@media(min-width: 900px){
+@media(min-width: 1000px){
     section{
+        padding-top: 50px;
         display: flex;
         text-align: center;
         justify-content: space-around;
@@ -30,18 +44,25 @@ canvas {
     section div {
         flex-basis: 40%;
     }
+    #top-content{
+        display: flex;
+        align-items: center;
+    }
+    #top-table{
+        flex-basis: 30%;    
+    }
+}
+table{
+    border-spacing: 0px !important;
 }
 
 /* top table */
-#top-content{
-    display: flex;
-    justify-content: space-around;
-}
 #top-table{
-    flex-basis: 70%;
+    border: 1px solid rgb(200, 217, 221);
+    margin: 10px;
 }
 #top-table td{
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     border-radius: 5px;
     border: none;
@@ -65,36 +86,46 @@ canvas {
 #d{
     color: red;
 }
-/*middle-content*/
+#pieChart{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(200, 217, 221);
+    padding: 10px;
+    border-radius: 3px;
+}
+#pieChart canvas{
+    height: 100px !important;
+    width: 210px !important;
+    display: flex !important;
+}
 
-#middle-table td:hover{
-    background-color: rgb(186, 184, 184);
+/*middle-content*/
+#middle-table{
+    border-radius: 3px;
+    border: 1px solid rgb(148, 146, 146);
+}
+#middle-table tr:hover{
+    background-color: #eeeeee;
     text-align: center;
     color: #413f3f;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid white;
+    
 }
 #middle-table td{
     text-align: center;
     color: #616161;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid white;
+    padding: 10px; 
+    border-bottom: 1px solid #dadada; 
 }
-#middle-table tr:nth-of-type(even){
-    background-color: #f3f2f2;
-}
-#middle-table tr:nth-of-type(odd){
-    background-color: rgb(232, 232, 232);
-
+#middle-table th{
+    text-align: center;
+    padding: 10px; 
+    border-bottom: 1px solid rgb(148, 146, 146); 
 }
 
 /*charts*/
 .charts{
     padding-top: 50px;
-    padding-right: 50px;
-    padding-left: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;

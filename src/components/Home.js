@@ -53,12 +53,24 @@ class Home extends Component {
                     )
                 })}
               </table>
-              <PieTotal />
+              <div id="pieChart">
+                <PieTotal />
+                <span> India Overview </span>
+              </div>
             </div>
             
             <section>
               <div>
                 <table id="middle-table">
+                  <thead>
+                    <tr>
+                      <th>State</th>
+                      <th>Confirmed</th>
+                      <th>Active</th>
+                      <th>Recovered</th>
+                      <th>Deaths</th>
+                    </tr>
+                  </thead>
                   <tbody>
                     {posts.map(post => {
                       if (post.statecode !== "TT")
