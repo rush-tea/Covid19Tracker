@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Raleway&family=Red+Rose&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500&family=Poppins&family=Quicksand:wght@500&display=swap');
 body{
-    font-family: 'Red Rose', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 *{
     margin: 0;
@@ -46,7 +46,7 @@ canvas {
     }
     #top-content{
         display: flex;
-        align-items: center;
+        justify-content: center;
     }
     #top-table{
         flex-basis: 30%;    
@@ -58,8 +58,10 @@ table{
 
 /* top table */
 #top-table{
-    border: 1px solid rgb(200, 217, 221);
-    margin: 10px;
+    border: 1px solid rgb(210, 229, 233);
+    border-radius: 4px;
+    height: 123px;
+    margin-right: 5px;
 }
 #top-table td{
     padding: 20px;
@@ -89,9 +91,10 @@ table{
 #pieChart{
     display: flex;
     align-items: center;
-    border: 1px solid rgb(200, 217, 221);
+    border: 1px solid rgb(210, 229, 233);
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 4px;
+     margin-left: 5px;
 }
 #pieChart canvas{
     height: 100px !important;
@@ -102,7 +105,7 @@ table{
 /*middle-content*/
 #middle-table{
     border-radius: 3px;
-    border: 1px solid rgb(148, 146, 146);
+    border: 1px solid #dadada;
 }
 #middle-table tr:hover{
     background-color: #eeeeee;
@@ -120,7 +123,7 @@ table{
 #middle-table th{
     text-align: center;
     padding: 10px; 
-    border-bottom: 1px solid rgb(148, 146, 146); 
+    border-bottom: 1px solid #dadada; 
 }
 
 /*charts*/
