@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import DailyConfirmed from './charts/dailyConfirmed';
-import TotalConfirmed from './charts/totalConfirmed';
-import Dailydeceased from './charts/dailyDeath';
-import Dailyrecovered from './charts/dailyRecovered';
-import Totaldeceased from './charts/totalDeath';
-import Totalrecovered from './charts/totalRecovered';
-import PieTotal from './charts/pieTotal';
+import DailyConfirmed from './charts/lineCharts/dailyConfirmed';
+import TotalConfirmed from './charts/lineCharts/totalConfirmed';
+import Dailydeceased from './charts/lineCharts/dailyDeath';
+import Dailyrecovered from './charts/lineCharts/dailyRecovered';
+import Totaldeceased from './charts/lineCharts/totalDeath';
+import Totalrecovered from './charts/lineCharts/totalRecovered';
+import PieTotal from './charts/pieCharts/pieTotal';
+import PieDaily from './charts/pieCharts/pieDaily';
 
 class Home extends Component {
     state= {
@@ -18,44 +19,52 @@ class Home extends Component {
             //console.log(res);
             this.setState({
                 posts: res.data.statewise
-            })
-        })
+            });
+        });
     }
     render(){
         const { posts } = this.state;
         return(
-          <div>
+          <div className="container">
             <div id="top-content">
-              <table id="top-table">
                 {posts.map(post => {
                   if (post.statecode === "TT")
                     return (
+                      <table id="top-table">
+                      <thead>
+                        <tr>
+                          <th id="c"><p>Confirmed</p></th>
+                          <th id="a"><p>Active</p></th>
+                          <th id="r"><p>Recovered</p></th>
+                          <th id="d"><p>Deaths</p></th>
+                        </tr>
+                      </thead>
                       <tbody key={post.statecode}>
                         <tr>
-                          <td id="c">
+                          <td id="c">                            
                             <h2>{post.confirmed}</h2>
-                            <p>Confirmed</p>
+                            <p style={{color: "red"}}>+{post.deltaconfirmed}</p>                            
                           </td>
-                          <td id="a">
+                          <td id="a">                            
                             <h2>{post.active}</h2>
-                            <p>Active</p>
                           </td>
-                          <td id="r">
+                          <td id="r">                            
                             <h2>{post.recovered}</h2>
-                            <p>Recovered</p>
+                            <p style={{ color: "red" }}>+{post.deltarecovered}</p>                            
                           </td>
-                          <td id="d">
+                          <td id="d">                    
                             <h2>{post.deaths}</h2>
-                            <p>Deaths</p>
+                            <p style={{ color: "red" }}>+{post.deltadeaths}</p>                            
                           </td>
                         </tr>
                       </tbody>
+                      </table>
                     )
                 })}
-              </table>
               <div id="pieChart">
                 <PieTotal />
                 <span> India Overview </span>
+                <PieDaily />
               </div>
             </div>
             

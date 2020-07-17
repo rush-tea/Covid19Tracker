@@ -42,7 +42,8 @@ class PieTotal extends Component {
                         },
                         title: {
                             display: false
-                        }
+                        },
+                        cutoutPercentage: 75
                     }
                 });
             });
