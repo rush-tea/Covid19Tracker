@@ -27,7 +27,7 @@ class PieTotal extends Component {
                         datasets: [
                             {
                                 label: "Points",
-                                backgroundColor: ['green', 'rgb(36, 37, 128)','rgb(66, 135, 245)','red'],
+                                backgroundColor: ['rgb(25, 250, 29)', 'rgb(36, 37, 128)','rgb(66, 135, 245)','red'],
                                 data: [parseInt(dataSet.confirmed),parseInt(dataSet.active), parseInt(dataSet.recovered), parseInt(dataSet.deaths) ] 
                             }
                         ]
