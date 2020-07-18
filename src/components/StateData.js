@@ -8,15 +8,15 @@ import Totaldeceased from './charts/lineCharts/totalDeath';
 import Totalrecovered from './charts/lineCharts/totalRecovered';
 import PieTotal from './charts/pieCharts/pieTotal';
 import PieDaily from './charts/pieCharts/pieDaily';
+import {Link} from 'react-router-dom';
 
-class Home extends Component {
+class StateData extends Component {
     state= {
         posts: []
     }
     componentDidMount(){
         axios.get("https://api.covid19india.org/data.json")
         .then(res => {
-            //console.log(res);
             this.setState({
                 posts: res.data.statewise
             });
@@ -30,7 +30,7 @@ class Home extends Component {
                 {posts.map(post => {
                   if (post.statecode === "TT")
                     return (
-                      <table id="top-table">
+                      <table id="top-table" key="1">
                       <thead>
                         <tr>
                           <th id="c"><p>Confirmed</p></th>
@@ -67,7 +67,7 @@ class Home extends Component {
                 <PieDaily />
               </div>
             </div>
-            
+            <hr/>
             <section>
               <div>
                 <table id="middle-table">
@@ -85,7 +85,7 @@ class Home extends Component {
                       if (post.statecode !== "TT")
                         return (
                           <tr key={post.statecode}>
-                            <td id="statedata">{post.state}</td>
+                            <td id="statedata"><Link to={"/" + post.statecode} >{post.state}</Link></td>
                             <td id="confirmed">{post.confirmed}</td>
                             <td id="active">{post.active}</td>
                             <td id="recovered">{post.recovered}</td>
@@ -107,11 +107,8 @@ class Home extends Component {
               </div>
             </section>
           </div>
-            
-              
-            
         )
     }
 }
 
-export default Home
+export default StateData

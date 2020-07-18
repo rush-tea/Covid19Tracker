@@ -18,9 +18,7 @@ class PieTotal extends Component {
     componentDidMount() {
         axios.get("https://api.covid19india.org/data.json")
             .then(res => {
-                console.log(res.data);
                 const dataSet = res.data.statewise[0];
-                console.log(dataSet);
                 this.setState({
                     data: {
                         labels: ["Active", "Recovered","Deaths"],
