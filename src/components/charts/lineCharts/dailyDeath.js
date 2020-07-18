@@ -24,7 +24,7 @@ class Dailydeceased extends Component {
                     date.push(daily.date);
                 });
                 dailydeceased = dailydeceased.slice(dailydeceased.length - 31, dailydeceased.length);
-                date = date.slice(date.length - 31, date.length);
+                date = date.slice(date.length - 21, date.length);
                 this.setState({
                     dailyStat: {
                         labels: date,
@@ -59,7 +59,21 @@ class Dailydeceased extends Component {
             <div style={{ position: "relative", width: 500, height: 400 }}>
                 <Line
                     options={{
-                        responsive: true
+                        responsive: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    autoSkip: true,
+                                    stepSize: 100
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: true,
+                                    maxTicksLimit: 8
+                                }
+                            }]
+                        }
                     }}
                     data={this.getChartData}
                 />

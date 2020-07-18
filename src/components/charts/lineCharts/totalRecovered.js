@@ -59,7 +59,21 @@ class Totalrecovered extends Component {
             <div style={{ position: "relative", width: 500, height: 400 }}>
                 <Line
                     options={{
-                        responsive: true
+                        responsive: true,
+                        scales: {
+                            yAxes: [{
+                                ticks:{
+                                    stepSize: 70000,
+                                    maxTicksLimit: 8
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: true,
+                                    maxTicksLimit: 8
+                                }
+                            }]
+                        }
                     }}
                     data={this.getChartData}
                 />

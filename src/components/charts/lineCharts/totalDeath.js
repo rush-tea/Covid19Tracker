@@ -24,7 +24,7 @@ class Totaldeceased extends Component {
                     date.push(total.date);
                 });
                 totaldeceased = totaldeceased.slice(totaldeceased.length - 31, totaldeceased.length);
-                date = date.slice(date.length - 31, date.length);
+                date = date.slice(date.length - 21, date.length);
                 this.setState({
                     totalStat: {
                         labels: date,
@@ -59,7 +59,21 @@ class Totaldeceased extends Component {
             <div style={{ position: "relative", width: 500, height: 400 }}>
                 <Line
                     options={{
-                        responsive: true
+                        responsive: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    autoSkip: true,
+                                    maxTicksLimit: 8
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    autoSkip: true,
+                                    maxTicksLimit: 8
+                                }
+                            }]
+                        }
                     }}
                     data={this.getChartData}
                 />
