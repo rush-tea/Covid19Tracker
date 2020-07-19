@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
 class TotalConfirmed extends Component {
@@ -18,20 +18,33 @@ class TotalConfirmed extends Component {
         axios.get("https://api.covid19india.org/data.json")
             .then(res => {
                 var totalConfirmed = [];
+                var totalRecovered = [];
                 var date = [];
                 res.data.cases_time_series.forEach(total => {
                     totalConfirmed.push(total.totalconfirmed);
+                    totalRecovered.push(total.totalrecovered);
                     date.push(total.date);
                 });
                 totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 31, totalConfirmed.length);
-                date = date.slice(date.length - 31, date.length);
+                totalRecovered = totalRecovered.slice(totalRecovered.length - 31, totalRecovered.length);
+                date = date.slice(date.length - 30, date.length);
                 this.setState({
                     totalStat: {
                         labels: date,
                         datasets: [
                             {
+                                borderWidth: 0.5,
+                                borderColor: "rgb(255, 15, 99)",
+                                backgroundColor: "rgba(255, 15, 99,0.8)",
                                 label: "Total Confirmed Cases",
                                 data: totalConfirmed
+                            },
+                            {
+                                borderWidth: 2,
+                                borderColor: "rgb(250,255,9)",
+                                backgroundColor: "rgb(250, 255, 9,0.6)",
+                                label: "Total Recovered",
+                                data: totalRecovered
                             }
                         ]
                     }
@@ -39,42 +52,42 @@ class TotalConfirmed extends Component {
             });
     }
 
-    getChartData = canvas => {
-        const data = this.state.totalStat;
-        if (data.datasets) {
-            data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(4, 222, 146,0.7)";
-                set.pointBackgroundColor = "green";
-                set.pointBorderColor = "green";
-                set.borderColor = "rgba(4, 222, 146,0.7)";
-                set.borderWidth = 2;
-                set.pointBorderWidth = 1
-            });
-        }
-        return data;
-    }
-
     render() {
         return (
-                <Line
+                <Bar
                     options={{
+                        legend: {
+                            position: "bottom"
+                        },
+                        devicePixelRatio: 3,
                         responsive: true,
                         scales: {
                             yAxes: [{
+                                position: 'right',
                                 ticks: {
+                                    display: false,
                                     autoSkip: true,
                                     maxTicksLimit: 8
+                                },
+                                stacked: true,
+                                gridLines: {
+                                    display: false
                                 }
                             }],
                             xAxes: [{
                                 ticks: {
+                                    display: false,
                                     autoSkip: true,
                                     maxTicksLimit: 8
+                                },
+                                stacked: true,
+                                gridLines: {
+                                    display: false
                                 }
                             }]
                         }
                     }}
-                    data={this.getChartData}
+                    data={this.state.totalStat}
                 />
         )
     }

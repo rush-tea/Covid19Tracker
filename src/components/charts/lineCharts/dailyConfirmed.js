@@ -77,7 +77,7 @@ class DailyConfirmed extends Component {
                                 maxTicksLimit: 8
                             },
                             gridLines: {
-                                display: false,
+                                display: false
                             }
                         }],
                         xAxes: [{
