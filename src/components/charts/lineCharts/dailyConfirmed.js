@@ -43,9 +43,8 @@ class DailyConfirmed extends Component {
         const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(252, 208, 207,0.4)"
-                set.pointBorderColor = "";
-                set.borderColor = "rgb(252, 90, 78)";
+                set.backgroundColor = "rgba(139, 191, 247,0.2)"
+                set.borderColor = "rgb(139, 191, 247)";
                 set.borderWidth = 5;
                 set.pointRadius = 0;
                 set.hoverBackgroundColor = "white";

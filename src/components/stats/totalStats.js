@@ -3,6 +3,7 @@ import axios from "axios";
 import PieTotal from '../charts/pieCharts/pieTotal';
 import PieDaily from '../charts/pieCharts/pieDaily';
 import DailyConfirmed from '../charts/lineCharts/dailyConfirmed';
+import DailyRecovered from "../charts/lineCharts/dailyRecovered";
 
 class TotalStats extends Component {
     state = {
@@ -54,14 +55,15 @@ class TotalStats extends Component {
                             </table>
                         )
                 })}
-                <div id="chart-top">
-                    <span>Daily Cases in India</span>
-                    <DailyConfirmed />
-                </div>
-                <div id="pieChart">
-                    <PieTotal />
-                    <span> India Overview </span>
-                    <PieDaily />
+                <div id="daily-chart">
+                    <div id="chart-top">
+                        <span>Daily Cases in India</span>
+                        <DailyConfirmed />
+                    </div>
+                    <div id="chart-top">
+                        <span>Daily Recoveries in India</span>
+                        <DailyRecovered />
+                    </div>
                 </div>
             </div>
         )

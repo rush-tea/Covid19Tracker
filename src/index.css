@@ -8,7 +8,7 @@ body{
     box-sizing: border-box;
     font-size: 1.7vh;
 }
-@media(max-width: 1000px){
+@media(max-width: 600px){
     section{
         padding-top: 3.125rem;
         display: flex;
@@ -21,6 +21,13 @@ body{
         display: flex;
         flex-direction: column;
     }
+    #top-table{
+        margin-bottom: 0.625rem;
+    }
+    #pieChart{
+        display: flex;
+        justify-content: center;
+    }
     #chart-top{
         width: 100%;
         flex-direction: column;
@@ -32,8 +39,7 @@ body{
         border-radius: 4px;
     }
     #chart-top canvas{
-        max-width: 400px;
-        height: 150px !important;
+        height: 180px !important;
     }
     #chart-top span{
         align-self: center;
@@ -41,16 +47,9 @@ body{
         font-size: 2.5vh;
         margin-top: 5px;
     }
-    #top-table{
-        margin-bottom: 0.625rem;
-    }
-    #pieChart{
-        display: flex;
-        justify-content: center;
-    }
 }
 
-@media(min-width: 1000px){
+@media(min-width: 600px){
     section{
         padding-top: 3.125rem;
         display: flex;
