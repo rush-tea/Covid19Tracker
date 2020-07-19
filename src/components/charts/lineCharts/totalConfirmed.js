@@ -56,7 +56,6 @@ class TotalConfirmed extends Component {
 
     render() {
         return (
-            <div style={{ position: "relative", width: 500, height: 400 }}>
                 <Line
                     options={{
                         responsive: true,
@@ -77,7 +76,6 @@ class TotalConfirmed extends Component {
                     }}
                     data={this.getChartData}
                 />
-            </div>
         )
     }
 }

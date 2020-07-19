@@ -24,7 +24,7 @@ class DailyConfirmed extends Component {
                     date.push(daily.date);
                 });
                 dailyConfirmed = dailyConfirmed.slice(dailyConfirmed.length - 31, dailyConfirmed.length);
-                date = date.slice(date.length - 21, date.length);
+                date = date.slice(date.length - 30, date.length);
                 this.setState({
                     dailyStat: {
                         labels: date,
@@ -43,12 +43,12 @@ class DailyConfirmed extends Component {
         const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(4, 222, 146,0.7)";
-                set.pointBackgroundColor = "green";
-                set.pointBorderColor = "green";
-                set.borderColor = "rgba(4, 222, 146,0.7)";
-                set.borderWidth = 2;
-                set.pointBorderWidth = 1
+                set.backgroundColor = "rgba(252, 208, 207,0.4)"
+                set.pointBorderColor = "";
+                set.borderColor = "rgb(252, 90, 78)";
+                set.borderWidth = 5;
+                set.pointRadius = 0;
+                set.hoverBackgroundColor = "white";
             });
         }
         return data;
@@ -56,28 +56,44 @@ class DailyConfirmed extends Component {
 
     render() {
         return (
-            <div style={{ position: "relative", width: 500, height: 0 }}>
-                <Line
-                    options={{
-                        responsive: true,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    autoSkip: true,
-                                    stepSize: 10000
-                                }
-                            }],
-                            xAxes: [{
-                                ticks: {
-                                    autoSkip: true,
-                                    maxTicksLimit: 8
-                                }
-                            }]
-                        }
-                    }}
-                    data={this.getChartData}
-                />
-            </div>
+            <Line
+                options={{
+                    layout:{
+                        padding: {
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            bottom: 0
+                        } 
+                    },
+                    devicePixelRatio: 2,
+                    legend: {
+                        display: false
+                    },
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                display: false,
+                                maxTicksLimit: 8
+                            },
+                            gridLines: {
+                                display: false,
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                display: false,
+                                maxTicksLimit: 8
+                            },
+                            gridLines: {
+                                display: false
+                            }
+                        }],
+                    }
+                }}
+                data={this.getChartData}
+            />
         )
     }
 }

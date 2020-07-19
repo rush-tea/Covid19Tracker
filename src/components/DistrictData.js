@@ -36,8 +36,7 @@ class DistrictData extends Component {
 
         return (
             <div>
-                
-                <table>
+                <table id="dist-middle-table">
                     <thead>
                         <tr>
                             <th>State</th>
@@ -46,20 +45,20 @@ class DistrictData extends Component {
                             <th>Recovered</th>
                         </tr>
                     </thead>
-                {
-                    this.state.names.map(dist => {
-                        return (
+                    {
+                        this.state.names.map(dist => {
+                            return (
                                 <tbody key={dist[0]}>
                                     <tr>
-                                        <td>{ dist[0] }</td>
+                                        <td>{dist[0]}</td>
                                         <td> {dist[1].confirmed} </td>
                                         <td> {dist[1].active} </td>
                                         <td> {dist[1].deceased} </td>
                                     </tr>
                                 </tbody>
-                        );
-                    })
-                }
+                            );
+                        })
+                    }
                 </table>
             </div>
         )
