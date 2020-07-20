@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
 class Totaldeceased extends Component {
@@ -23,8 +23,8 @@ class Totaldeceased extends Component {
                     totaldeceased.push(total.totaldeceased);
                     date.push(total.date);
                 });
-                totaldeceased = totaldeceased.slice(totaldeceased.length - 40, totaldeceased.length);
-                date = date.slice(date.length - 40, date.length);
+                totaldeceased = totaldeceased.slice(totaldeceased.length - 80, totaldeceased.length);
+                date = date.slice(date.length - 80, date.length);
                 this.setState({
                     totalStat: {
                         labels: date,
@@ -43,12 +43,13 @@ class Totaldeceased extends Component {
         const data = this.state.totalStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(252, 88, 116,0.7)";
-                set.pointBackgroundColor = "red";
-                set.pointBorderColor = "red";
-                set.borderColor = "rgba(252, 88, 116,0.7)";
-                set.borderWidth = 2;
-                set.pointBorderWidth = 1
+                set.backgroundColor = "rgba(84, 184, 255,0.1)";
+                set.pointBackgroundColor = "rgb(84, 184, 255)";
+                set.pointBorderColor = "rgb(84, 127, 255)";
+                set.borderColor = "rgba(84, 127, 255)";
+                set.borderWidth = 1;
+                set.pointBorderWidth = 0.1;
+                set.pointRadius = 1.5;
             });
         }
         return data;
@@ -56,20 +57,44 @@ class Totaldeceased extends Component {
 
     render() {
         return (
-                <Bar
+                <Line
                 options={{
-                    legend: {
-                        position: "bottom"
+                    tooltips: {
+                        borderColor: "#cccccc",
+                        borderWidth: 1,
+                        enabled: true,
+                        xPadding: 10,
+                        yPadding: 10,
+                        footerMarginTop: 10,
+                        titleFontColor: "black",
+                        titleMarginBottom: 10,
+                        titleAlign: "center",
+                        bodySpacing: 4,
+                        bodyFontColor: "black",
+                        backgroundColor: "rgba(250, 250, 250,0.9)",
+                        titleFontFamily: "font-family: 'Roboto', sans-serif"
                     },
                     devicePixelRatio: 3,
                     responsive: true,
+                    legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                            fontSize: 12,
+                            fontColor: "black",
+                            fontFamily: " 'Roboto', sans-serif",
+                            usePointStyle: true,
+                            pointRadius: 10
+                        }
+                    },
                     scales: {
                         yAxes: [{
                             position: 'right',
                             ticks: {
-                                display: false,
+                                beginAtZero: false,
+                                display: true,
                                 autoSkip: true,
-                                maxTicksLimit: 8
+                                maxTicksLimit: 10
                             },
                             stacked: true,
                             gridLines: {
@@ -82,7 +107,6 @@ class Totaldeceased extends Component {
                                 autoSkip: true,
                                 maxTicksLimit: 8
                             },
-                            stacked: true,
                             gridLines: {
                                 display: false
                             }

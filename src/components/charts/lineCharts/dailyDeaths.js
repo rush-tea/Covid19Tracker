@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-class TotalConfirmed extends Component {
+class DailyDeaths extends Component {
     state = {
-        totalStat: {
+        dailyStat: {
             labels: [],
             datasets: [
                 {
@@ -17,41 +17,21 @@ class TotalConfirmed extends Component {
     componentDidMount() {
         axios.get("https://api.covid19india.org/data.json")
             .then(res => {
-                var totalConfirmed = [];
-                var totalRecovered = [];
+                var dailyDeaths= [];
                 var date = [];
-                res.data.cases_time_series.forEach(total => {
-                    totalConfirmed.push(total.totalconfirmed);
-                    totalRecovered.push(total.totalrecovered);
-                    date.push(total.date);
+                res.data.cases_time_series.forEach(daily => {
+                    dailyDeaths.push(daily.dailydeceased);
+                    date.push(daily.date);
                 });
-                totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 60, totalConfirmed.length);
-                totalRecovered = totalRecovered.slice(totalRecovered.length - 60, totalRecovered.length);
-                date = date.slice(date.length - 60, date.length);
+                dailyDeaths = dailyDeaths.slice(dailyDeaths.length - 80, dailyDeaths.length);
+                date = date.slice(date.length - 80, date.length);
                 this.setState({
-                    totalStat: {
+                    dailyStat: {
                         labels: date,
                         datasets: [
                             {
-                                borderWidth: 1,
-                                pointBorderWidth: 0.1,
-                                borderColor: "rgb(77, 235, 164)",
-                                pointBackgroundColor: "rgb(77, 235, 164)",
-                                backgroundColor: "rgba(77, 235, 164,0.2)",
-                                label: "Total Recovered",
-                                data: totalRecovered,
-                                pointRadius: 2
-                            },
-                            {
-                                borderWidth: 1,
-                                pointBorderWidth: 0.1,
-                                borderColor: "rgb(96, 144, 240)",
-                                pointBackgroundColor: "rgb(96, 144, 240)",
-                                backgroundColor: "rgba(96, 144, 240,0.1)",
-                                borderWidth: 0.5,
-                                label: "Total Confirmed Cases",
-                                data: totalConfirmed,
-                                pointRadius: 2
+                                label: "Deaths",
+                                data: dailyDeaths
                             }
                         ]
                     }
@@ -59,9 +39,25 @@ class TotalConfirmed extends Component {
             });
     }
 
+    getChartData = canvas => {
+        const data = this.state.dailyStat;
+        if (data.datasets) {
+            data.datasets.forEach((set) => {
+                set.backgroundColor = "rgba(84, 184, 255,0.1)";
+                set.pointBackgroundColor = "rgb(84, 184, 255)";
+                set.pointBorderColor = "rgb(84, 127, 255)";
+                set.borderColor = "rgba(84, 127, 255)";
+                set.borderWidth = 1;
+                set.pointBorderWidth = 0.1;
+                set.pointRadius = 1.5;
+            });
+        }
+        return data;
+    }
+
     render() {
         return (
-                <Line
+            <Line
                 options={{
                     tooltips: {
                         borderColor: "#cccccc",
@@ -70,11 +66,10 @@ class TotalConfirmed extends Component {
                         xPadding: 10,
                         yPadding: 10,
                         footerMarginTop: 10,
-                        titleFontColor: "#f0f0f0",
+                        titleFontColor: "black",
                         titleMarginBottom: 10,
                         titleAlign: "center",
                         bodySpacing: 4,
-                        titleFontColor: "black",
                         bodyFontColor: "black",
                         backgroundColor: "rgba(250, 250, 250,0.9)",
                         titleFontFamily: "font-family: 'Roboto', sans-serif"
@@ -94,33 +89,30 @@ class TotalConfirmed extends Component {
                     },
                     scales: {
                         yAxes: [{
-                            position: "right",
-                            stacked: true,
+                            position: 'right',
                             ticks: {
+                                beginAtZero: false,
                                 display: true,
+                                autoSkip: true,
                                 maxTicksLimit: 10
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                display: false,
+                                autoSkip: true,
+                                maxTicksLimit: 8
                             },
                             gridLines: {
                                 display: false
                             }
-                        }],
-                        xAxes: [{
-                            stacked: true,
-                            ticks: {
-                                autoSkip: true,
-                                display: false,
-                                maxTicksLimit: 10
-                            },
-                            gridLines:{
-                                display: false
-                            },
-                        }],
+                        }]
                     }
                 }}
-                    data={this.state.totalStat}
-                />
+                data={this.getChartData}
+            />
         )
     }
 }
 
-export default TotalConfirmed
+export default DailyDeaths

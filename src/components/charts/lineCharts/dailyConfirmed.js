@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
 class DailyConfirmed extends Component {
@@ -18,20 +18,35 @@ class DailyConfirmed extends Component {
         axios.get("https://api.covid19india.org/data.json")
             .then(res => {
                 var dailyConfirmed = [];
+                var dailyRecoveries =[];
                 var date = [];
                 res.data.cases_time_series.forEach(daily => {
                     dailyConfirmed.push(daily.dailyconfirmed);
+                    dailyRecoveries.push(daily.dailyrecovered);
                     date.push(daily.date);
                 });
-                dailyConfirmed = dailyConfirmed.slice(dailyConfirmed.length - 30, dailyConfirmed.length);
-                date = date.slice(date.length - 30, date.length);
+                dailyConfirmed = dailyConfirmed.slice(dailyConfirmed.length - 50, dailyConfirmed.length);
+                dailyRecoveries = dailyRecoveries.slice(dailyRecoveries.length - 50, dailyRecoveries.length);
+                date = date.slice(date.length - 50, date.length);
                 this.setState({
                     dailyStat: {
                         labels: date,
                         datasets: [
                             {
+                                backgroundColor: "rgb(98, 174, 245)",
+                                borderColor: "rgb(98, 174, 245)",
+                                borderWidth : 1,
+                                pointRadius : 1,
                                 label: "Daily Confirmed Cases",
                                 data: dailyConfirmed
+                            },
+                            {
+                                backgroundColor: "rgb(98, 245, 203)",
+                                borderColor: "rgb(98, 245, 203)",
+                                borderWidth: 1,
+                                pointRadius: 1,
+                                label: "Daily Recoveries",
+                                data: dailyRecoveries
                             }
                         ]
                     }
@@ -39,59 +54,58 @@ class DailyConfirmed extends Component {
             });
     }
 
-    getChartData = canvas => {
-        const data = this.state.dailyStat;
-        if (data.datasets) {
-            data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(255, 28, 89,0.2)"
-                set.borderColor = "rgb(255, 28, 89)";
-                set.borderWidth = 5;
-                set.pointRadius = 0;
-                set.hoverBackgroundColor = "white";
-            });
-        }
-        return data;
-    }
-
     render() {
         return (
-            <Line
+            <Bar
                 options={{
-                    layout:{
-                        padding: {
-                            left: 0,
-                            right: 0,
-                            top: 0,
-                            bottom: 0
-                        } 
+                    tooltips: {
+                        borderColor: "#cccccc",
+                        borderWidth: 1,
+                        enabled: true,
+                        xPadding: 10,
+                        yPadding: 10,
+                        footerMarginTop: 10,
+                        titleFontColor: "#f0f0f0",
+                        titleMarginBottom: 10,
+                        titleAlign: "center",
+                        bodySpacing: 4,
+                        bodyFontColor: "black",
+                        backgroundColor: "rgba(250, 250, 250,0.9)",
+                        titleFontFamily: "font-family: 'Roboto', sans-serif"
                     },
-                    devicePixelRatio: 2,
-                    legend: {
-                        display: false
-                    },
+                    devicePixelRatio: 3,
                     responsive: true,
+                    legend: {
+                        display: true,
+                        position: "bottom",
+                        labels: {
+                            fontSize: 12,
+                            fontColor: "black",
+                            fontFamily: " 'Roboto', sans-serif",
+                            usePointStyle: true,
+                            pointRadius: 10
+                        }
+                    },
                     scales: {
                         yAxes: [{
+                            position: "right",
+                            stacked: true,
                             ticks: {
-                                display: false,
+                                display: true,
                                 maxTicksLimit: 8
                             },
-                            gridLines: {
-                                display: false
-                            }
                         }],
                         xAxes: [{
+                            stacked: true,
                             ticks: {
+                                autoSkip: true,
                                 display: false,
-                                maxTicksLimit: 8
-                            },
-                            gridLines: {
-                                display: false
+                                maxTicksLimit: 4
                             }
                         }],
                     }
                 }}
-                data={this.getChartData}
+                data={this.state.dailyStat}
             />
         )
     }

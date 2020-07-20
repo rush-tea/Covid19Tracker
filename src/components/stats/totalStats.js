@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DailyConfirmed from '../charts/lineCharts/dailyConfirmed';
-import DailyRecovered from "../charts/lineCharts/dailyRecovered";
+import DailyDeaths from "../charts/lineCharts/dailyDeaths";
 import TotalConfirmed from '../charts/lineCharts/totalConfirmed';
 import Totaldeceased from '../charts/lineCharts/totalDeath';
 
@@ -67,7 +67,7 @@ class TotalStats extends Component {
                         </div>
                         <div id="chart-top">
                             <span>Daily Recoveries in India</span>
-                            <DailyRecovered />
+                            <DailyDeaths />
                         </div>   
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
     font-family: 'Roboto Slab', serif;
+    background-image: linear-gradient(to right top, #f0f0f1, #ededee, #eaeaec, #e7e8ea, #e4e5e7);
 }
 a{
     text-decoration: none;
@@ -15,17 +16,20 @@ a{
 }
 @media(max-width: 600px){
     #top-content{
-        margin-left: 5px;
-        margin-right: 15px;
+        overflow-x: scroll;
         display: flex;
         flex-direction: column;
     }
     #top-table{
-        margin-bottom: 0.625rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        margin-top: 0.625rem;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     #daily-chart{
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -38,7 +42,7 @@ a{
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         border-radius: 4px;
         border: 1px solid rgb(210, 229, 233);
     }
@@ -50,22 +54,21 @@ a{
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         border-radius: 4px;
         border: 1px solid rgb(210, 229, 233);
     }
     #daily-chart canvas{
         display: flex !important;
     }
-    #line-top canvas{
-        height: 170px !important;
-    }
     #daily-chart span{
         margin-top: 10px;
     }
     .middle-table{
+        overflow-x: auto;
         font-size: 0.7em !important;
         display: flex;
+        border-radius: 10px;
         flex-direction: column;
         margin-left: 10px;
         margin-right: 10px;
@@ -96,7 +99,7 @@ a{
         width: 580px !important;
     }
     #line-top canvas{
-        max-width: 285px;
+        max-width: 580px;
     }
     #daily-chart{
         margin-left: auto;
@@ -112,18 +115,11 @@ a{
         flex-direction: column;
     }
     #bar-top div{
-        margin-bottom: 10px;
-        border-radius: 4px;
-        border: 1px solid rgb(210, 229, 233);
+        margin-bottom: 15px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-    }
-    #line-top{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
     }
     #line-top div{
         border-radius: 4px;
@@ -147,18 +143,16 @@ a{
         justify-content: space-between;
     }
     #bar-top div{
-        border-radius: 4px;
-        border: 1px solid rgb(210, 229, 233);
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
     }
     #bar-top div:nth-of-type(1){
-        margin-right: 5px;
+        margin-right: 10px;
     }
     #bar-top div:nth-of-type(2){
-        margin-left: 5px;
+        margin-left: 10px;
     }
     #line-top{
         display: flex;
@@ -173,13 +167,32 @@ a{
     #line-top canvas{
         width: 450px !important;
         max-width: 450px;
-        height: 150px !important;
+        height: 250px !important;
     }
 }
 
+#top-table {
+    background-color: white;
+}
+#bar-top div{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#line-top div{
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
 table{
     border-spacing: 0px !important;
-    border-collapse: collapse;
+    table-layout: fixed;
+}
+td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 #daily-chart{
     font-size: 1em !important;
@@ -187,22 +200,21 @@ table{
 /* top table */
 #top-table{
     font-family: 'Roboto', sans-serif;
-    border: 1px solid rgb(210, 229, 233);
-    border-radius: 4px;
-    height: 7.688rem;
+}
+#top-table h2{
+    font-size: 1.8em;
 }
 #top-table td{
-    font-size: 0.7em !important;
-    padding: 0.2rem;
-    padding-top: 0rem !important;
-    padding-bottom: 0rem !important;
+    font-size: 0.5em !important;
+    padding-top: 0.7rem !important;
+    padding-bottom: 1rem !important;
     text-align: center;
     border-radius: 5px;
     border: none;
 }
 #top-table th{
-    font-size: 1.0em !important;    
-    padding: 0.5rem;
+    font-size: 0.8em !important;    
+    padding-top: 1rem;
     text-align: center;
     border-radius: 5px;
     border: none;
