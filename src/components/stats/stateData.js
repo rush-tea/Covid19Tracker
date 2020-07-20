@@ -33,7 +33,7 @@ class StateData extends Component {
                             return (
                                 <tr key={post.statecode}>
                                     <td id="statedata"><Link to={"/" + post.statecode} >{post.state}</Link></td>
-                                    <td id="confirmed">{post.confirmed}</td>
+                                    <td id="confirmed" >{post.confirmed}</td>
                                     <td id="active">{post.active}</td>
                                     <td id="recovered">{post.recovered}</td>
                                     <td id="deaths">{post.deaths}</td>

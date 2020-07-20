@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import PieTotal from '../charts/pieCharts/pieTotal';
-import PieDaily from '../charts/pieCharts/pieDaily';
 import DailyConfirmed from '../charts/lineCharts/dailyConfirmed';
 import DailyRecovered from "../charts/lineCharts/dailyRecovered";
 import TotalConfirmed from '../charts/lineCharts/totalConfirmed';
+import Totaldeceased from '../charts/lineCharts/totalDeath';
 
 class TotalStats extends Component {
     state = {
@@ -58,16 +57,18 @@ class TotalStats extends Component {
                 })}
                 <div id="daily-chart">
                     <div id="bar-top">
-                        <span>Total Cases in India</span>
-                        <TotalConfirmed />
+                        <div><span>Total Cases in India</span><TotalConfirmed /></div>
+                        <div><span>Total Cases in India</span><Totaldeceased /></div>
                     </div>
-                    <div id="chart-top">
-                        <span>Daily Cases in India</span>
-                        <DailyConfirmed />
-                    </div>
-                    <div id="chart-top">
-                        <span>Daily Recoveries in India</span>
-                        <DailyRecovered />
+                    <div id="line-top">
+                        <div id="chart-top">
+                            <span>Daily Cases in India</span>
+                            <DailyConfirmed />
+                        </div>
+                        <div id="chart-top">
+                            <span>Daily Recoveries in India</span>
+                            <DailyRecovered />
+                        </div>   
                     </div>
                 </div>
             </div>

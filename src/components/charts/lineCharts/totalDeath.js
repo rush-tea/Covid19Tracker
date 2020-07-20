@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
 class Totaldeceased extends Component {
@@ -23,8 +23,8 @@ class Totaldeceased extends Component {
                     totaldeceased.push(total.totaldeceased);
                     date.push(total.date);
                 });
-                totaldeceased = totaldeceased.slice(totaldeceased.length - 31, totaldeceased.length);
-                date = date.slice(date.length - 21, date.length);
+                totaldeceased = totaldeceased.slice(totaldeceased.length - 40, totaldeceased.length);
+                date = date.slice(date.length - 40, date.length);
                 this.setState({
                     totalStat: {
                         labels: date,
@@ -56,24 +56,39 @@ class Totaldeceased extends Component {
 
     render() {
         return (
-                <Line
-                    options={{
-                        responsive: true,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    autoSkip: true,
-                                    maxTicksLimit: 8
-                                }
-                            }],
-                            xAxes: [{
-                                ticks: {
-                                    autoSkip: true,
-                                    maxTicksLimit: 8
-                                }
-                            }]
-                        }
-                    }}
+                <Bar
+                options={{
+                    legend: {
+                        position: "bottom"
+                    },
+                    devicePixelRatio: 3,
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            position: 'right',
+                            ticks: {
+                                display: false,
+                                autoSkip: true,
+                                maxTicksLimit: 8
+                            },
+                            stacked: true,
+                            gridLines: {
+                                display: false
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                display: false,
+                                autoSkip: true,
+                                maxTicksLimit: 8
+                            },
+                            stacked: true,
+                            gridLines: {
+                                display: false
+                            }
+                        }]
+                    }
+                }}
                     data={this.getChartData}
                 />
         )

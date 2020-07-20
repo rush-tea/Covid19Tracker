@@ -23,7 +23,7 @@ class DailyRecovered extends Component {
                     dailyrecovered.push(daily.dailyrecovered);
                     date.push(daily.date);
                 });
-                dailyrecovered = dailyrecovered.slice(dailyrecovered.length - 31, dailyrecovered.length);
+                dailyrecovered = dailyrecovered.slice(dailyrecovered.length - 30, dailyrecovered.length);
                 date = date.slice(date.length - 30, date.length);
                 this.setState({
                     dailyStat: {
@@ -43,8 +43,8 @@ class DailyRecovered extends Component {
         const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(139, 191, 247,0.2)"
-                set.borderColor = "rgb(139, 191, 247)";
+                set.backgroundColor = "rgba(28, 255, 39,0.2)"
+                set.borderColor = "rgb(28, 255, 39)";
                 set.borderWidth = 5;
                 set.pointRadius = 0;
             });

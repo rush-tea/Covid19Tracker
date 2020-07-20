@@ -7,11 +7,9 @@ class Home extends Component {
         return(
           <div>
             <TotalStats />
-            <section>
-              <div>
+            <div className="middle-table">
                 <StateData />
-              </div>
-            </section>
+            </div>
           </div>
         )
     }

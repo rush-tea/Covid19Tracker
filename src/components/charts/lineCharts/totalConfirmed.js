@@ -25,8 +25,8 @@ class TotalConfirmed extends Component {
                     totalRecovered.push(total.totalrecovered);
                     date.push(total.date);
                 });
-                totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 31, totalConfirmed.length);
-                totalRecovered = totalRecovered.slice(totalRecovered.length - 31, totalRecovered.length);
+                totalConfirmed = totalConfirmed.slice(totalConfirmed.length - 30, totalConfirmed.length);
+                totalRecovered = totalRecovered.slice(totalRecovered.length - 30, totalRecovered.length);
                 date = date.slice(date.length - 30, date.length);
                 this.setState({
                     totalStat: {
@@ -34,15 +34,15 @@ class TotalConfirmed extends Component {
                         datasets: [
                             {
                                 borderWidth: 0.5,
-                                borderColor: "rgb(255, 15, 99)",
-                                backgroundColor: "rgba(255, 15, 99,0.8)",
+                                borderColor: "rgb(255, 28, 89)",
+                                backgroundColor: "rgba(255, 28, 89,0.8)",
                                 label: "Total Confirmed Cases",
                                 data: totalConfirmed
                             },
                             {
                                 borderWidth: 2,
-                                borderColor: "rgb(250,255,9)",
-                                backgroundColor: "rgb(250, 255, 9,0.6)",
+                                borderColor: "rgb(28, 255, 39)",
+                                backgroundColor: "rgb(28, 255, 39,0.6)",
                                 label: "Total Recovered",
                                 data: totalRecovered
                             }

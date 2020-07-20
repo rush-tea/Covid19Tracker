@@ -23,7 +23,7 @@ class DailyConfirmed extends Component {
                     dailyConfirmed.push(daily.dailyconfirmed);
                     date.push(daily.date);
                 });
-                dailyConfirmed = dailyConfirmed.slice(dailyConfirmed.length - 31, dailyConfirmed.length);
+                dailyConfirmed = dailyConfirmed.slice(dailyConfirmed.length - 30, dailyConfirmed.length);
                 date = date.slice(date.length - 30, date.length);
                 this.setState({
                     dailyStat: {
@@ -43,8 +43,8 @@ class DailyConfirmed extends Component {
         const data = this.state.dailyStat;
         if (data.datasets) {
             data.datasets.forEach((set) => {
-                set.backgroundColor = "rgba(139, 191, 247,0.2)"
-                set.borderColor = "rgb(139, 191, 247)";
+                set.backgroundColor = "rgba(255, 28, 89,0.2)"
+                set.borderColor = "rgb(255, 28, 89)";
                 set.borderWidth = 5;
                 set.pointRadius = 0;
                 set.hoverBackgroundColor = "white";
