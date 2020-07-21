@@ -25,9 +25,6 @@ a{
       align-items: center;
       overflow-x: auto;
   }
-  #top-table{
-      width: 100%;
-  }
   .totalData table{
       font-size: 0.8em;
   }
@@ -38,7 +35,10 @@ a{
       overflow-x: scroll;
   }
   .stateData{
-      font-size: 0.7em;
+      font-size: 0.8em;
+  }
+  #top-table{
+      width: 100%;
   }
   #middle-table{
       width: 100%;
@@ -49,12 +49,6 @@ a{
   }
   #middle-table th{
       padding-top: 10px;
-  }
-  #chart{
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      margin-left: 3px;
   }
 }
 
@@ -137,6 +131,12 @@ a{
       flex-direction: column;
       align-items: center;
   }
+  .bar-chart{
+      display: flex;
+  }
+  .line-chart{
+      display: flex;
+  }
   .bar-chart div{
       padding: 20px;
       display: flex;
@@ -144,12 +144,12 @@ a{
       align-items: center;
   }
   .line-chart div canvas {
-      width: 450px !important;
-      max-width: 450px;
+      width: 470px !important;
+      max-width: 470px;
   }
   .bar-chart div canvas {
-      width: 450px !important;
-      max-width: 450px;
+      width: 470px !important;
+      max-width: 470px;
   }
 }
 table {
@@ -157,6 +157,10 @@ table {
 }
 #daily-chart {
   font-size: 1em !important;
+}
+table{
+    word-wrap: break-word;
+    table-layout: fixed;
 }
 /* top table */
 #top-table h2 {
