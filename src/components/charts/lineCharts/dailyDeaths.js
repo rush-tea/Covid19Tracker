@@ -60,8 +60,6 @@ class DailyDeaths extends Component {
             <Line
                 options={{
                     tooltips: {
-                        borderColor: "#cccccc",
-                        borderWidth: 1,
                         enabled: true,
                         xPadding: 10,
                         yPadding: 10,
@@ -72,7 +70,7 @@ class DailyDeaths extends Component {
                         bodySpacing: 4,
                         bodyFontColor: "black",
                         backgroundColor: "rgba(250, 250, 250,0.9)",
-                        titleFontFamily: "font-family: 'Roboto', sans-serif"
+                        titleFontFamily: "font-family: 'Poppins', sans-serif"
                     },
                     devicePixelRatio: 3,
                     responsive: true,
@@ -80,9 +78,9 @@ class DailyDeaths extends Component {
                         display: true,
                         position: "bottom",
                         labels: {
-                            fontSize: 12,
+                            fontSize: 10,
                             fontColor: "black",
-                            fontFamily: " 'Roboto', sans-serif",
+                            fontFamily: " 'Poppins', sans-serif",
                             usePointStyle: true,
                             pointRadius: 10
                         }
@@ -94,7 +92,9 @@ class DailyDeaths extends Component {
                                 beginAtZero: false,
                                 display: true,
                                 autoSkip: true,
-                                maxTicksLimit: 10
+                                maxTicksLimit: 10,
+                                fontColor: "#666",
+                                fontSize: 8
                             }
                         }],
                         xAxes: [{

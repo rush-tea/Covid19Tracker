@@ -17,32 +17,34 @@ class StateData extends Component {
     render() {
         const { posts } = this.state;
         return(
-            <table id="middle-table">
-                <thead>
-                    <tr>
-                        <th>State</th>
-                        <th>Confirmed</th>
-                        <th>Active</th>
-                        <th>Recovered</th>
-                        <th>Deaths</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {posts.map(post => {
-                        if (post.statecode !== "TT")
-                            return (
-                                <tr key={post.statecode}>
-                                    <td id="statedata"><Link to={"/" + post.statecode} >{post.state}</Link></td>
-                                    <td id="confirmed" >{post.confirmed}</td>
-                                    <td id="active">{post.active}</td>
-                                    <td id="recovered">{post.recovered}</td>
-                                    <td id="deaths">{post.deaths}</td>
-                                </tr>
-                            )
-                    }
-                    )}
-                </tbody>
-            </table>
+            <div className="stateData">
+                <table id="middle-table">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Confirmed</th>
+                            <th>Active</th>
+                            <th>Recovered</th>
+                            <th>Deaths</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {posts.map(post => {
+                            if (post.statecode !== "TT")
+                                return (
+                                    <tr key={post.statecode}>
+                                        <td id="statename"><Link to={"/" + post.statecode} >{post.state}</Link></td>
+                                        <td id="confirmed" >{post.confirmed}</td>
+                                        <td id="active">{post.active}</td>
+                                        <td id="recovered">{post.recovered}</td>
+                                        <td id="deaths">{post.deaths}</td>
+                                    </tr>
+                                )
+                        }
+                        )}
+                    </tbody>
+                </table> 
+            </div>
         )
     }   
 }

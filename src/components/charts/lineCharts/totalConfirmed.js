@@ -43,12 +43,11 @@ class TotalConfirmed extends Component {
                                 pointRadius: 2
                             },
                             {
-                                borderWidth: 1,
                                 pointBorderWidth: 0.1,
                                 borderColor: "rgb(96, 144, 240)",
                                 pointBackgroundColor: "rgb(96, 144, 240)",
                                 backgroundColor: "rgba(96, 144, 240,0.1)",
-                                borderWidth: 0.5,
+                                borderWidth: 1,
                                 label: "Total Confirmed Cases",
                                 data: totalConfirmed,
                                 pointRadius: 2
@@ -64,20 +63,17 @@ class TotalConfirmed extends Component {
                 <Line
                 options={{
                     tooltips: {
-                        borderColor: "#cccccc",
-                        borderWidth: 1,
                         enabled: true,
                         xPadding: 10,
                         yPadding: 10,
                         footerMarginTop: 10,
-                        titleFontColor: "#f0f0f0",
                         titleMarginBottom: 10,
                         titleAlign: "center",
                         bodySpacing: 4,
                         titleFontColor: "black",
                         bodyFontColor: "black",
                         backgroundColor: "rgba(250, 250, 250,0.9)",
-                        titleFontFamily: "font-family: 'Roboto', sans-serif"
+                        titleFontFamily: "font-family: 'Poppins', sans-serif"
                     },
                     devicePixelRatio: 3,
                     responsive: true,
@@ -85,9 +81,9 @@ class TotalConfirmed extends Component {
                         display: true,
                         position: "bottom",
                         labels: {
-                            fontSize: 12,
+                            fontSize: 10,
                             fontColor: "black",
-                            fontFamily: " 'Roboto', sans-serif",
+                            fontFamily: " 'Poppins', sans-serif",
                             usePointStyle: true,
                             pointRadius: 10
                         }
@@ -98,7 +94,9 @@ class TotalConfirmed extends Component {
                             stacked: true,
                             ticks: {
                                 display: true,
-                                maxTicksLimit: 10
+                                maxTicksLimit: 10,
+                                fontColor: "#666",
+                                fontSize: 8
                             },
                             gridLines: {
                                 display: false

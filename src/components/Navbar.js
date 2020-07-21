@@ -1,26 +1,44 @@
 import React, { Component } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 
-class Navbar extends Component {
+class Nav extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isExpanded: false
+        };
+    }
+    handleToggle(e) {
+        e.preventDefault();
+        this.setState({
+            isExpanded: !this.state.isExpanded
+        });
+    }
     render() {
+        const { isExpanded } = this.state;
+
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <span className="navbar-brand">Covid19India</span>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <span className="nav-link">Home <span className="sr-only">(current)</span></span>
-                        </li>
-                        <li className="nav-item">
-                            <span className="nav-link">Link</span>
-                        </li>
-                    </ul>
+            <>
+            <nav>
+                <div className="logo-name">
+                    <p>Covid19India</p>
                 </div>
+                <i
+                    className="fa fa-bars hamburger"
+                    aria-hidden="true"
+                    onClick={e => this.handleToggle(e)}
+                />
+                <ul className={`nav-links ${isExpanded ? "open" : ""}`}>
+                    <li>home</li>
+                    <li>about</li>
+                    <li>contact</li>
+                </ul>
             </nav>
-        )
+            <hr/>
+            </>
+        );
     }
 }
-export default Navbar
+
+export default Nav;

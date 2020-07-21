@@ -59,8 +59,6 @@ class DailyConfirmed extends Component {
             <Bar
                 options={{
                     tooltips: {
-                        borderColor: "#cccccc",
-                        borderWidth: 1,
                         enabled: true,
                         xPadding: 10,
                         yPadding: 10,
@@ -71,7 +69,7 @@ class DailyConfirmed extends Component {
                         bodySpacing: 4,
                         bodyFontColor: "black",
                         backgroundColor: "rgba(250, 250, 250,0.9)",
-                        titleFontFamily: "font-family: 'Roboto', sans-serif"
+                        titleFontFamily: "font-family: 'Poppins', sans-serif"
                     },
                     devicePixelRatio: 3,
                     responsive: true,
@@ -79,9 +77,9 @@ class DailyConfirmed extends Component {
                         display: true,
                         position: "bottom",
                         labels: {
-                            fontSize: 12,
+                            fontSize: 10,
                             fontColor: "black",
-                            fontFamily: " 'Roboto', sans-serif",
+                            fontFamily: " 'Poppins', sans-serif",
                             usePointStyle: true,
                             pointRadius: 10
                         }
@@ -92,7 +90,9 @@ class DailyConfirmed extends Component {
                             stacked: true,
                             ticks: {
                                 display: true,
-                                maxTicksLimit: 8
+                                maxTicksLimit: 8,
+                                fontColor: "#666",
+                                fontSize: 8
                             },
                         }],
                         xAxes: [{
