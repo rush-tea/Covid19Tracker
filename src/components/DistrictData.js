@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DistrictDaily from './charts/stateCharts/StateTotal';
 
 
 class DistrictData extends Component {
@@ -7,7 +8,8 @@ class DistrictData extends Component {
         super();
         this.state = {
             'districts': [],
-            names: []
+            names: [],
+            stateName: ""
         }
     }
     componentDidMount() {
@@ -26,8 +28,9 @@ class DistrictData extends Component {
                             this.state.names.push(keys);
                         });
                         this.setState({
-                            names: this.state.names
-                        })
+                            names: this.state.names,
+                            stateName: dist_id
+                        });
                     }
                 });
             });
@@ -35,14 +38,17 @@ class DistrictData extends Component {
     render() {
 
         return (
-            <div>
-                <table id="dist-middle-table">
+            <>
+            <DistrictDaily value= {this.state.stateName} />
+            <div className="stateData">
+                <table id="middle-table">
                     <thead>
                         <tr>
-                            <th>State</th>
+                            <th>District</th>
                             <th>Confirmed</th>
                             <th>Active</th>
                             <th>Recovered</th>
+                            <th>Deaths</th>
                         </tr>
                     </thead>
                     {
@@ -50,10 +56,11 @@ class DistrictData extends Component {
                             return (
                                 <tbody key={dist[0]}>
                                     <tr>
-                                        <td>{dist[0]}</td>
-                                        <td> {dist[1].confirmed} </td>
-                                        <td> {dist[1].active} </td>
-                                        <td> {dist[1].deceased} </td>
+                                        <td id="statename">{dist[0]}</td>
+                                        <td id="confirmed"> {dist[1].confirmed} </td>
+                                        <td id="active"> {dist[1].active} </td>
+                                        <td id="recovered"> {dist[1].recovered} </td>
+                                        <td id="deaths"> {dist[1].deceased} </td>
                                     </tr>
                                 </tbody>
                             );
@@ -61,6 +68,7 @@ class DistrictData extends Component {
                     }
                 </table>
             </div>
+            </>
         )
     }
 }
