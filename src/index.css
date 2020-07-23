@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 body {
   font-family: "Poppins", sans-serif;
-  color: #696969;
+  color: #727272;
 }
 hr{
     width: 100% !important;
@@ -30,6 +30,7 @@ a{
 
 #middle-table{
   padding-top: 15px;
+  padding-bottom: 15px;
 }
 .line-chart div{
   border: 1px solid #f1f1f1;
@@ -37,9 +38,13 @@ a{
   margin: 5px;
 }
 .bar-chart div{
-  border: 1px solid #f1f1f1;
+  border: 1px solid #e7e7e7;
   border-radius: 5px;
   margin: 5px;
+}
+#chart {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 @media (max-width: 768px) {
@@ -210,7 +215,7 @@ a{
       align-items: center;
   }
   .line-chart div {
-      padding: 30px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -226,18 +231,18 @@ a{
       flex-direction: row;
   }
   .bar-chart div{
-      padding: 30px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
   }
   .line-chart div canvas {
-      width: 480px !important;
-      max-width: 480px;
+      width: 490px !important;
+      max-width: 490px;
   }
   .bar-chart div canvas {
-      width: 480px !important;
-      max-width: 480px;
+      width: 490px !important;
+      max-width: 490px;
   }
 }
 table {
@@ -347,7 +352,7 @@ nav .logo-name span{
 nav{
     background-color: #f7f7f7;
     display: flex;
-    color: #4d4a4a;
+    color: #727272;
 }
 .nav-links{
     padding: 50px;
@@ -362,17 +367,29 @@ nav{
 .hamburger{
     display: none;
 }
+.nav-links li{
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  border-radius: 3px;
+}
+.nav-links li:hover {
+    transition: 0.2s ease-in ;
+    background-color: #cccccc;
+    color: black;
+}
 
 @media screen and (max-width: 1200px){
-  nav .logo-name{
-    padding: 2.5em;
-    font-size: 0.9em;
-}
-nav .logo-name span{
-    font-size: 0.4em;
-    display: flex;
-    flex-direction: column;
-}
+    nav .logo-name{
+      padding: 2.5em;
+      font-size: 0.9em;
+    }
+    nav .logo-name span{
+      font-size: 0.4em;
+      display: flex;
+      flex-direction: column;
+    }
     nav{
         position: relative;
     }
@@ -385,9 +402,15 @@ nav .logo-name span{
         transform: translate(-50%, -100%);
         z-index: 2;
     }
+    .nav-links li{
+      border-radius: 5px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
     .nav-links{
-        height: 60%;
-        padding-bottom: 3px;
+        justify-content: space-evenly;
         position: fixed;
         background-color: #f7f7f7;
         width: 100%;
@@ -398,9 +421,38 @@ nav .logo-name span{
         pointer-events: none;
     }
     .nav-links.open{
-        clip-path: circle(1000px at 50% -10%);
-        -webkit-clip-path: circle(1000px at 50% -100%);
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
         pointer-events: all;
         transition: all 0.8s ease-in;
+    }
+    .nav-links li {
+      opacity: 0;
+    }
+    .nav-links li a {
+      font-size: 18px;
+    }
+    .nav-links li:hover {
+      transition: 0.2s ease-in ;
+      background-color: #cccccc;
+      color: black;
+    }
+    .nav-links li:nth-child(1){
+      transition: all 0.5s ease 0.1s;
+    }
+    .nav-links li:nth-child(2){
+      transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(3){
+      transition: all 0.5s ease 0.3s;
+    }
+    .nav-links li:nth-child(4){
+      transition: all 0.5s ease 0.3s;
+    }
+    .nav-links li:nth-child(5){
+      transition: all 0.5s ease 0.3s;
+    }
+    .nav-links li.fade{
+      opacity: 1;
     }
 }

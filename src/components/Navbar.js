@@ -22,7 +22,7 @@ class Nav extends Component {
             <>
             <nav>
                 <div className="logo-name">
-                    <p>Covid19India</p>
+                    <p>Covid19Outbreak</p>
                     <span>Stats overview</span>
                 </div>
                 <i
@@ -31,11 +31,11 @@ class Nav extends Component {
                     onClick={e => this.handleToggle(e)}
                 />
                 <ul className={`nav-links ${isExpanded ? "open" : ""}`}>
-                        <li> <Link to="/">Home</Link> </li>
-                        <li><a href="https://www.covid19india.org/">Deep Dive</a></li>
-                        <li> <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"> WHO Guidelines </a></li>
-                        <li> <a href="https://github.com/covid19india/api">View Database</a></li>
-                        <li> <a href="#contacts">Contact Us</a> </li>
+                        <li className={`${isExpanded ? "fade" : ""}`}> <Link to="/">Home</Link> </li>
+                        <li className={`${isExpanded ? "fade" : ""}`}><a href="https://www.covid19india.org/">Deep Dive</a></li>
+                        <li className={`${isExpanded ? "fade" : ""}`}> <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"> WHO Guidelines </a></li>
+                        <li className={`${isExpanded ? "fade" : ""}`}> <a href="https://github.com/covid19india/api">View Database</a></li>
+                        <li className={`${isExpanded ? "fade" : ""}`}> <a href="#contacts">About Me</a> </li>
                 </ul>
             </nav>
             <hr/>

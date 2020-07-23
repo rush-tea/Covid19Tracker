@@ -18,6 +18,7 @@ class TotalStats extends Component {
         return (
             <>
                 <div className="totalData">
+                    <div className="State">India Overview</div>
                     {posts.map(post => {
                         if (post.statecode === "TT")
                             return (
