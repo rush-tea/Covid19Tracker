@@ -12,7 +12,7 @@ class Charts extends Component {
                 <div id="chart">
                     <div className="bar-chart">
                         <div><span>Total Cases in India</span><TotalConfirmed /></div>
-                        <div><span>Total Cases in India</span><Totaldeceased /></div>
+                        <div><span>Total Deaths in India</span><Totaldeceased /></div>
                     </div>
                     <div className="line-chart">
                         <div>
@@ -20,7 +20,7 @@ class Charts extends Component {
                             <DailyConfirmed />
                         </div>
                         <div>
-                            <span>Daily Recoveries in India</span>
+                            <span>Daily Deaths in India</span>
                             <DailyDeaths />
                         </div>
                     </div>

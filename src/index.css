@@ -24,8 +24,8 @@ a{
   padding-bottom: 15px;
 }
 .totalData{
-  padding-bottom: 20px;
   background-color: white;
+  margin: 10px;
 }
 
 #middle-table{
@@ -33,18 +33,26 @@ a{
   padding-bottom: 15px;
 }
 .line-chart div{
-  border: 1px solid #f1f1f1;
+  border: 1px solid #dbdbdb;
+  background-color: white;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
 }
 .bar-chart div{
-  border: 1px solid #e7e7e7;
+  background-color: white;
+  border: 1px solid #dbdbdb;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
 }
 #chart {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  background-color: #fdfdfd;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#chart div span {
+  color: black;
+  padding-bottom: 20px;
+  padding-top: 5px;
 }
 
 @media (max-width: 768px) {
@@ -79,8 +87,8 @@ a{
   }
   #middle-table td{
     overflow-x: auto;
-    word-spacing: 1em;
     padding: 0.4rem;
+    font-size: 0.7em;
   }
   #middle-table th{
     word-wrap: normal;
@@ -91,14 +99,14 @@ a{
     flex-direction: column;
   }
   .bar-chart div {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   .line-chart div {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,12 +245,12 @@ a{
       align-items: center;
   }
   .line-chart div canvas {
-      width: 490px !important;
-      max-width: 490px;
+      width: 500px !important;
+      max-width: 500px;
   }
   .bar-chart div canvas {
-      width: 490px !important;
-      max-width: 490px;
+      width: 500px !important;
+      max-width: 500px;
   }
 }
 table {
@@ -379,7 +387,9 @@ nav{
     background-color: #cccccc;
     color: black;
 }
-
+.nav-links .contact-nav{
+  display: none;
+}
 @media screen and (max-width: 1200px){
     nav .logo-name{
       padding: 2.5em;
@@ -426,33 +436,106 @@ nav{
         pointer-events: all;
         transition: all 0.8s ease-in;
     }
-    .nav-links li {
-      opacity: 0;
-    }
     .nav-links li a {
       font-size: 18px;
     }
     .nav-links li:hover {
       transition: 0.2s ease-in ;
-      background-color: #cccccc;
+      background-color: #eeeeee;
+    }
+    .nav-links li:hover a{
       color: black;
     }
-    .nav-links li:nth-child(1){
-      transition: all 0.5s ease 0.1s;
+    .nav-links .contact-nav{
+      display: flex;
     }
-    .nav-links li:nth-child(2){
-      transition: all 0.5s ease 0.2s;
+    .contact-nav{
+      padding-left: 20px;
+      padding-right: 20px;
+      border-top: 1px solid #cccccc;
     }
-    .nav-links li:nth-child(3){
-      transition: all 0.5s ease 0.3s;
+    .contact-nav div{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 15px;
     }
-    .nav-links li:nth-child(4){
-      transition: all 0.5s ease 0.3s;
+    .contact-nav a:hover .fa{
+      font-size: 1.0em;
+      color: #696969;
     }
-    .nav-links li:nth-child(5){
-      transition: all 0.5s ease 0.3s;
-    }
-    .nav-links li.fade{
-      opacity: 1;
-    }
+}
+
+footer{
+  font-size: 0.9em;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.code{
+  display: flex;
+  justify-content: space-between;
+}
+.contact{
+  display: flex;
+  justify-content: space-evenly;
+}
+footer .salutation p{
+  padding: 18px;
+  color: black;
+}
+.code div {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  margin: 5px;
+}
+.contact{
+  padding-left: 40px;
+  padding-right: 40px;
+  border-top: 1px solid #cccccc;
+}
+.contact div {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.code div p {
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.code div:hover{
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+
+.fa-facebook{
+  color: #4560f8;
+}
+.fa-instagram{
+  color: #cf1c67;
+}
+.fa-linkedin{
+ color: #2e47d6;
+}
+.fa-github{
+  color: black;
+}
+.fa-code{
+  color: black;
+  padding-top: 2px;
+}
+.fa-database{
+  color: #2ed674;
+  padding-top: 2px;
+}
+
+footer .contact a:hover{
+  font-size: 1.2em;
 }

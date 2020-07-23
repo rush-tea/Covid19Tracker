@@ -34,8 +34,17 @@ class Nav extends Component {
                         <li className={`${isExpanded ? "fade" : ""}`}> <Link to="/">Home</Link> </li>
                         <li className={`${isExpanded ? "fade" : ""}`}><a href="https://www.covid19india.org/">Deep Dive</a></li>
                         <li className={`${isExpanded ? "fade" : ""}`}> <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"> WHO Guidelines </a></li>
-                        <li className={`${isExpanded ? "fade" : ""}`}> <a href="https://github.com/covid19india/api">View Database</a></li>
-                        <li className={`${isExpanded ? "fade" : ""}`}> <a href="#contacts">About Me</a> </li>
+                        <li className={`${isExpanded ? "fade" : ""}`}> <a href="https://github.com/covid19india/api">API</a></li>
+                        <div className={`contact-nav`}>
+                            <div> <a href="https://github.com/rush-tea"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+                            <div> <a href="https://www.linkedin.com/in/adarsh-tripathi-0a5a24191/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div>
+                            <div> <a href="https://www.instagram.com/adarsh._.tripathi._/">  <i class="fa fa-instagram" aria-hidden="true"></i> </a> </div>
+                            <div> <a href="https://www.facebook.com/adarsh.tripathi.5855594/"> <i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                        </div>
+                        <hr/>
+                        <div>
+                            <p>Stay Home, Stay Safe</p>
+                        </div>
                 </ul>
             </nav>
             <hr/>
