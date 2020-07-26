@@ -390,6 +390,13 @@ nav{
 .nav-links .contact-nav{
   display: none;
 }
+
+.nav-sal{
+  display: none;
+}
+.nav-hr{
+  display: none ;
+}
 @media screen and (max-width: 1200px){
     nav .logo-name{
       padding: 2.5em;
@@ -431,8 +438,8 @@ nav{
         pointer-events: none;
     }
     .nav-links.open{
-        clip-path: circle(1000px at 90% -10%);
-        -webkit-clip-path: circle(1000px at 90% -10%);
+        clip-path: circle(2000px at 90% -10%);
+        -webkit-clip-path: circle(2000px at 90% -10%);
         pointer-events: all;
         transition: all 0.8s ease-in;
     }

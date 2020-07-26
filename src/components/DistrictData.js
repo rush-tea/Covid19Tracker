@@ -68,6 +68,7 @@ class DistrictData extends Component {
                     }
                 </table>
             </div>
+            <hr/>
             </>
         )
     }
