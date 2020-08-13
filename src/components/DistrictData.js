@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import DistrictDaily from './charts/stateCharts/StateTotal';
+import NumberFormat from 'react-number-format';
 
 
 class DistrictData extends Component {
@@ -57,10 +58,10 @@ class DistrictData extends Component {
                                 <tbody key={dist[0]}>
                                     <tr>
                                         <td id="statename">{dist[0]}</td>
-                                        <td id="confirmed"> {dist[1].confirmed} </td>
-                                        <td id="active"> {dist[1].active} </td>
-                                        <td id="recovered"> {dist[1].recovered} </td>
-                                        <td id="deaths"> {dist[1].deceased} </td>
+                                        <td id="confirmed"><NumberFormat value={dist[1].confirmed} displayType={'text'} thousandSeparator={true} /></td>
+                                        <td id="active"><NumberFormat value={dist[1].active} displayType={'text'} thousandSeparator={true} /> </td>
+                                        <td id="recovered"> <NumberFormat value={dist[1].recovered} displayType={'text'} thousandSeparator={true} /> </td>
+                                        <td id="deaths"> <NumberFormat value={dist[1].deceased} displayType={'text'} thousandSeparator={true} /></td>
                                     </tr>
                                 </tbody>
                             );

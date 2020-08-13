@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import NumberFormat from 'react-number-format';
 
 class DistrictDaily extends Component {
     state = {
@@ -35,19 +36,19 @@ class DistrictDaily extends Component {
                                         <tbody key={post.statecode}>
                                             <tr>
                                                 <td id="c">
-                                                    <h2>{post.confirmed}</h2>
-                                                    <p style={{ color: "red" }}>+{post.deltaconfirmed}</p>
+                                                    <h2><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
+                                                    <p style={{ color: "red" }}>+<NumberFormat value={post.deltaconfirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></p>
                                                 </td>
                                                 <td id="a">
-                                                    <h2>{post.active}</h2>
+                                                    <h2><NumberFormat value={post.active} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
                                                 </td>
                                                 <td id="r">
-                                                    <h2>{post.recovered}</h2>
-                                                    <p style={{ color: "red" }}>+{post.deltarecovered}</p>
+                                                    <h2><NumberFormat value={post.recovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
+                                                    <p style={{ color: "red" }}>+<NumberFormat value={post.deltarecovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></p>
                                                 </td>
                                                 <td id="d">
-                                                    <h2>{post.deaths}</h2>
-                                                    <p style={{ color: "red" }}>+{post.deltadeaths}</p>
+                                                    <h2><NumberFormat value={post.deaths} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
+                                                    <p style={{ color: "red" }}>+<NumberFormat value={post.deltadeaths} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></p>
                                                 </td>
                                             </tr>
                                         </tbody>

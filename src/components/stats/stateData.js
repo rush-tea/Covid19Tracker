@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import NumberFormat from 'react-number-format';
 
 class StateData extends Component {
     state = {
@@ -34,10 +35,10 @@ class StateData extends Component {
                                 return (
                                     <tr key={post.statecode}>
                                         <td id="statename"><Link to={"/" + post.statecode} >{post.state}</Link></td>
-                                        <td id="confirmed" >{post.confirmed}</td>
-                                        <td id="active">{post.active}</td>
-                                        <td id="recovered">{post.recovered}</td>
-                                        <td id="deaths">{post.deaths}</td>
+                                        <td id="confirmed"><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh"/></td>
+                                        <td id="active"><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></td>
+                                        <td id="recovered"><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></td>
+                                        <td id="deaths"><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh"/></td>
                                     </tr>
                                 )
                         }
