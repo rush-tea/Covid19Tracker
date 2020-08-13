@@ -34,7 +34,7 @@ class StateData extends Component {
                             if (post.statecode !== "TT")
                                 return (
                                     <tr key={post.statecode}>
-                                        <td id="statename"><Link to={"/" + post.statecode} >{post.state}</Link></td>
+                                        <td id="statename"><Link to={"/" + post.statecode}>{post.state}</Link></td>
                                         <td id="confirmed"><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh"/></td>
                                         <td id="active"><NumberFormat value={post.active} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></td>
                                         <td id="recovered"><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></td>
