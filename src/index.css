@@ -32,6 +32,14 @@ a{
   padding-top: 15px;
   padding-bottom: 15px;
 }
+#middle-table tr td div{
+  display: flex;
+  flex-direction: column-reverse;
+}
+#middle-table tr td div span:nth-child(2){
+  color: #f00d0d;
+  font-size: 77%;
+}
 .line-chart div{
   border: 1px solid #dbdbdb;
   background-color: white;
@@ -88,7 +96,7 @@ a{
   #middle-table td{
     overflow-x: auto;
     padding: 0.4rem;
-    font-size: 0.7em;
+    font-size: 83%;
   }
   #middle-table th{
     word-wrap: normal;

@@ -37,18 +37,24 @@ class DistrictDaily extends Component {
                                             <tr>
                                                 <td id="c">
                                                     <h2><NumberFormat value={post.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
-                                                    <p style={{ color: "red" }}>+<NumberFormat value={post.deltaconfirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></p>
+                                                    <p style={{ color: "red" }}>{
+                                                        post.deltaconfirmed > 0 && <span>+<NumberFormat value={post.deltaconfirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                    }</p>
                                                 </td>
                                                 <td id="a">
                                                     <h2><NumberFormat value={post.active} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
                                                 </td>
                                                 <td id="r">
                                                     <h2><NumberFormat value={post.recovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
-                                                    <p style={{ color: "red" }}>+<NumberFormat value={post.deltarecovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></p>
+                                                    <p style={{ color: "red" }}>{
+                                                        post.deltarecovered > 0 && <span>+<NumberFormat value={post.deltarecovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                    }</p>
                                                 </td>
                                                 <td id="d">
                                                     <h2><NumberFormat value={post.deaths} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></h2>
-                                                    <p style={{ color: "red" }}>+<NumberFormat value={post.deltadeaths} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></p>
+                                                    <p style={{ color: "red" }}>{
+                                                        post.deltadeaths > 0 && <span>+<NumberFormat value={post.deltadeaths} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                    }</p>
                                                 </td>
                                             </tr>
                                         </tbody>

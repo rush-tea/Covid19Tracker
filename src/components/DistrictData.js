@@ -58,10 +58,31 @@ class DistrictData extends Component {
                                 <tbody key={dist[0]}>
                                     <tr>
                                         <td id="statename">{dist[0]}</td>
-                                        <td id="confirmed"><NumberFormat value={dist[1].confirmed} displayType={'text'} thousandSeparator={true} /></td>
+                                        <td id="confirmed">
+                                            <div>
+                                                <span><NumberFormat value={dist[1].confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                {
+                                                    dist[1].delta.confirmed > 0 && <span>+<NumberFormat value={dist[1].delta.confirmed} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                }
+                                            </div>
+                                        </td>    
                                         <td id="active"><NumberFormat value={dist[1].active} displayType={'text'} thousandSeparator={true} /> </td>
-                                        <td id="recovered"> <NumberFormat value={dist[1].recovered} displayType={'text'} thousandSeparator={true} /> </td>
-                                        <td id="deaths"> <NumberFormat value={dist[1].deceased} displayType={'text'} thousandSeparator={true} /></td>
+                                        <td id="recovered">
+                                            <div>
+                                                <span><NumberFormat value={dist[1].recovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                {
+                                                    dist[1].delta.recovered > 0 && <span>+<NumberFormat value={dist[1].delta.recovered} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                }
+                                            </div>
+                                        </td>
+                                        <td id="deaths">
+                                            <div>
+                                                <span><NumberFormat value={dist[1].deceased} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                {
+                                                    dist[1].delta.deceased > 0 && <span>+<NumberFormat value={dist[1].delta.deceased} displayType={'text'} thousandSeparator={true} thousandsGroupStyle="lakh" /></span>
+                                                }
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             );
